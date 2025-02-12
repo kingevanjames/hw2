@@ -82,6 +82,11 @@ Movie.destroy_all
 Actor.destroy_all
 Role.destroy_all
 
+# puts Studio.all.count
+# puts Movie.all.count
+# puts Actor.all.count
+# puts Role.all.count
+
 # Generate models and tables, according to the domain model.
 # TODO!
 # generated via terminal (rails generate model + each model name as above)
@@ -116,7 +121,7 @@ darkknightrises["rated"] = "PG-13"
 darkknightrises["studio_id"] = WB["id"]
 darkknightrises.save
 
-puts "movies: #{Movie.all.count}"
+# puts "movies: #{Movie.all.count}"
 
 newActor = Actor.new
 newActor["name"] = "Christian Bale"
@@ -260,8 +265,8 @@ newRole["movie_id"] = dkr["id"]
 newRole["actor_id"] = Actor.find_by({"name" => "Anne Hathaway"})["id"]
 newRole.save
 
-puts Role.inspect
-puts Movie.inspect
+# puts Role.inspect
+# puts Movie.inspect
 # Prints a header for the movies output
 puts "Movies"
 puts "======"
