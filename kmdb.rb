@@ -76,13 +76,47 @@
 # Delete existing data, so you'll start fresh each time this script is run.
 # Use `Model.destroy_all` code.
 # TODO!
+Studio.destroy_all
+Movie.destroy_all
+Actor.destroy_all
+Role.destroy_all
 
 # Generate models and tables, according to the domain model.
 # TODO!
+# generated via terminal (rails generate model + each model name as above)
 
 # Insert data into the database that reflects the sample data shown above.
 # Do not use hard-coded foreign key IDs.
 # TODO!
+
+newStudio = Studio.new
+newStudio["name"] = "Warner Bros."
+newStudio.save
+
+WB = Studio.find_by({"name" => "Warner Bros."})
+batmanbegins = Movie.new
+batmanbegins["title"] = "Batman Begins"
+batmanbegins["year_released"] = 2005
+batmanbegins["rated"] = "PG-13"
+batmanbegins["studio_id"] = WB["id"]
+batmanbegins.save
+
+darkknight = Movie.new
+darkknight["title"] = "The Dark Knight"
+darkknight["year_released"] = 2008
+darkknight["rated"] = "PG-13"
+darkknight["studio_id"] = WB["id"]
+darkknight.save
+
+darkknightrises = Movie.new
+darkknightrises["title"] = "The Dark Knight Rises"
+darkknightrises["year_released"] = 2012
+darkknightrises["rated"] = "PG-13"
+darkknightrises["studio_id"] = WB["id"]
+darkknightrises.save
+
+puts "movies: #{Movie.all.count}"
+
 
 # Prints a header for the movies output
 puts "Movies"
